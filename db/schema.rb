@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180715003935) do
+ActiveRecord::Schema.define(version: 20180715015710) do
 
   create_table "invoice_payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.bigint "invoice_id", null: false
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20180715003935) do
     t.string "description"
     t.string "invoice_type", default: "once", null: false
     t.integer "total_cost", null: false
-    t.boolean "paid", default: false, null: false
     t.string "status", default: "unpaid", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

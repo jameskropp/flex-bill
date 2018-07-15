@@ -17,5 +17,7 @@ Rails.application.routes.draw do
   post "/invoice/cancel/:id" => "invoices#cancel"
 
   resources :invoices
-  resources :invoice_payments
+
+  get "invoice/:invoice_id/payments" => "invoice_payments#index"
+  post "invoice/:invoice_id/payments" => "invoice_payments#create"
 end

@@ -1,4 +1,6 @@
 class InvoicePaymentsController < ApplicationController
+  # before_action :authenticate_user
+  # before_action :authorize
   before_action :set_invoice, only: [:index, :create]
 
   def index
@@ -8,18 +10,18 @@ class InvoicePaymentsController < ApplicationController
   def create
     payment = @invoice.invoice_payments.create!(payment_params)
     if payment.paid
-      @invoice.update(status: "paid", paid: true)
+      @invoice.update(status: "paid")
     end
 
     render json: @invoice
   end
 
-  def destroy
-    payment = InvoicePayment.find(params[:id])
-    if payment.destroy
-      render json: {status: 200, msg: "Invoice has been deleted."}
-    end
-  end
+  #   def destroy
+  #     payment = InvoicePayment.find(params[:id])
+  #     if payment.destroy
+  #       render json: {status: 200, msg: "Invoice has been deleted."}
+  #     end
+  #   end
 
   private
 

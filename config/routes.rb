@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   patch "/user/:id" => "users#update"
   delete "/user/:id" => "users#destroy"
 
+  post "/invoice/cancel/:id" => "invoices#cancel"
+
   resources :invoices
   resources :invoice_payments
 end

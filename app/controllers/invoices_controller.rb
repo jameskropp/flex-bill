@@ -23,6 +23,13 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def cancel
+    invoice = Invoice.find(params[:id])
+    if invoice.update(status: "cancelled", paid: false)
+      render json: {status: 200, msg: "Invoice has been cancelled."}
+    end
+  end
+
   private
 
   def set_user

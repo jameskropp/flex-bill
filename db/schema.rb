@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180714232812) do
+ActiveRecord::Schema.define(version: 20180715003935) do
 
   create_table "invoice_payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.bigint "invoice_id", null: false
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20180714232812) do
     t.string "status", default: "unpaid", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "sender_name"
     t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
